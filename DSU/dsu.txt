@@ -1,0 +1,24 @@
+//initialize parent[i] = i;
+//initialize rank[i] = 0;
+int find_parent(int node, vector<int> &parent){
+    if(parent[node] != node)
+        parent[node] = find_parent(parent[node], parent);
+    return parent[node];
+}
+
+void dsu(int i, int j, vector<int> &parent, vector<int> &rank){
+    int id_i = find_parent(i, parent);
+    int id_j = find_parent(j, parent);
+    if(id_i == id_j) return;
+
+    if(rank[id_i] < rank[id_j]){
+        parent[id_i] = id_j;
+    }
+    else{
+        parent[id_j] = id_i;
+        if(rank[id_i] == rank[id_j])
+            rank[id_i]++;
+    }
+    return;
+}
+
