@@ -1,24 +1,33 @@
-//initialize parent[i] = i;
-//initialize rank[i] = 0;
-int find_parent(int node, vector<int> &parent){
-    if(parent[node] != node)
-        parent[node] = find_parent(parent[node], parent);
-    return parent[node];
-}
+class disjoint_set {
+    public:
+        int n;
+        vector<int> parent, rank;
+        disjoint_set(int n1){
+            n = n1;
+            for(int i=0; i<n; i++) parent.push_back(i);
+            rank.assign(n, 0);
+        }
 
-void dsu(int i, int j, vector<int> &parent, vector<int> &rank){
-    int id_i = find_parent(i, parent);
-    int id_j = find_parent(j, parent);
-    if(id_i == id_j) return;
+        int find_parent(int node){
+            if(parent[node] != node){
+                parent[node] = find_parent(parent[node]);
+            }
+            return parent[node];
+        }
 
-    if(rank[id_i] < rank[id_j]){
-        parent[id_i] = id_j;
-    }
-    else{
-        parent[id_j] = id_i;
-        if(rank[id_i] == rank[id_j])
-            rank[id_i]++;
-    }
-    return;
-}
+        void dsu(int i, int j){
+            int id_i = find_parent(i);
+            int id_j = find_parent(j);
+            if(id_i == id_j) return;
 
+            if(rank[id_i] < rank[id_j]){
+                parent[id_i] = id_j;
+            }
+            else{
+                parent[id_j] = id_i;
+                if(rank[id_i] == rank[id_j])
+                    rank[id_i]++;
+            }
+            return;
+        }
+};
