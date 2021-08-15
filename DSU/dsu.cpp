@@ -44,4 +44,7 @@ class disjointSet {
         int sizeOfSet(int node){
             return setSize[findParent(node)];
         }
+        bool isSameSet(int i, int j){
+            return (findParent(i) == findParent(j));
+        }
 };
