@@ -1,9 +1,6 @@
 class disjointSet {
     private:
-        vector<int> parent, rank, setSize;
-        //parent: path toward root of disjoint_set OR parent of every element in disjoint set
-        //rank: upper bound of the actual height of the tree; not reliable as actual measure
-        //setSize = size of each disjoint set
+        vector<int> parent, rank, setSize;        
         int numSets;
     public:
         disjointSet(int n){
