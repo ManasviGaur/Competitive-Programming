@@ -1,4 +1,26 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <climits>
+#include <iomanip>
+#include <tuple>
+#include <list>
+#include <bitset>
+#include <queue>
+#include <deque>
+#include <string>
+#include <cstring>
+#include <cmath>
+#include <cstdlib>
+#include <chrono>
+#include <stack>
+#include <functional>
+#include <utility>
+#include <numeric>
 
 using namespace std;
  
@@ -17,8 +39,9 @@ using namespace std;
 #define u_s unordered_set
 #define u_m unordered_map
 #define p_q priority_queue
+#define all0(x) memset((x), 0, sizeof((x)))
 
-/******************************TEMPLATE******************************/
+/*****************************DEBUGGING*TEMPLATE******************************/
 #define sim template < class c
 #define ris return * this
 #define dor > debug & operator <<
@@ -67,13 +90,18 @@ int32_t main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
+    // #ifndef ONLINE_JUDGE
+    //     freopen("input.txt", "r", stdin);
+    //     freopen("output.txt", "w", stdout);
+    // #endif
     test = 1;
     cin >> test;
-    while(test--){
+    for(int i = 1; i <= test; i++){
+        //cout << "Case #" << i << ": ";
         solve();
     }
-    #ifndef ONLINE_JUDGE
-        cerr << "Time elapsed: " << 1.0 * clock() / CLOCKS_PER_SEC << " s." << endl;
-    #endif
+    // #ifndef ONLINE_JUDGE
+    //     cerr << "Time elapsed: " << 1.0 * clock() / CLOCKS_PER_SEC << " s." << endl;
+    // #endif
     return 0;
 }
